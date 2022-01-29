@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet</title>
+
+    <!-- leaflet css  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.4/dist/L.Control.Locate.min.css" />
+
+</script>
+    <style>
+     #map{
+            height: 700px;
+            background-color: rgb(31, 192, 31);
+        }
+ .leaflet-popup-content-wrapper {
+     width:100%
+ }        
+    </style>
+</head>
+
+<body>
+    <form>
+        <select id="business">
+            <option value="Museums">Museums</option>
+            <option value="Restaurants">Restaurants</option>
+            <option value="hotel">Hotels</option>
+            <option value="Shopping Centers">Shopping Centers</option>
+        </select>
+        <button id="submit">Submit</button>
+    </form>
+    <div id="map"></div>
+</body>
+</html>
+
+<!--add a button for user to share a location(L.control.locate to get user real ubication )-->
+
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+
+<script>
+    // Map initialization 
+    var map = L.map('map').setView([37.697948,-97.314835], 14);
+    
+    //osm layer copyright items
+    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+    osm.addTo(map); 
+// some place in Wichita Ks
+    L.control.locate().addTo(map);
+var marker = L.marker([37.697948,-97.314835]).addTo(map)
+        .bindPopup('<p1><b>Wichita, Kansas</b><br></p1>')
+		.openPopup()
+</script>
+
